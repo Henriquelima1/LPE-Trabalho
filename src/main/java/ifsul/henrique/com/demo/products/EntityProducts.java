@@ -15,21 +15,25 @@ public class EntityProducts {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long code;
+    private Long id;
+    private String code;
     private String name;
+    private String description;
     @Lob 
     private byte[] image; 
     private double price;
     private Date date;
     private String category;
-    private int reviews;
-    private int stock;
-
-    public Long getCode() {
+    private int quantity;
+    private String inventoryStatus;
+    private int rating;
+    
+    
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -73,21 +77,46 @@ public class EntityProducts {
         this.category = category;
     }
 
-    public int getReviews() {
-        return reviews;
+    public Long getId() {
+        return id;
     }
 
-    public void setReviews(int reviews) {
-        this.reviews = reviews;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int getStock() {
-        return stock;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setDescription(String description) {
+        this.description = description;
     }
-    
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getInventoryStatus() {
+        return inventoryStatus;
+    }
+
+    public void setInventoryStatus(String inventoryStatus) {
+        this.inventoryStatus = inventoryStatus;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+  
    
 }

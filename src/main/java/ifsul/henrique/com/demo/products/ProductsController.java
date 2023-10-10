@@ -4,6 +4,7 @@
  */
 package ifsul.henrique.com.demo.products;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,11 +30,17 @@ public class ProductsController {
         this.productsRepository = productsRepository;
     }
     
+    @GetMapping
+    public List<EntityProducts> getAllProducts() {
+        return productsRepository.findAll();
+    }
+    
     @GetMapping("/{id}")
     public ResponseEntity<EntityProducts> getEntityAById(@PathVariable Long id) {
         Optional<EntityProducts> entityProducts = productsRepository.findById(id);
         return entityProducts.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+    
     
     @PostMapping
     public ResponseEntity<EntityProducts> createEntityA(@RequestBody EntityProducts entityProducts) {
