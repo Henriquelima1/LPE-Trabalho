@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author 20182PF.CC0041
  */
-public interface ProductsRepository extends JpaRepository<EntityProducts, Long>{
+public interface ProductsRepository extends JpaRepository<Products, Long>{
     
 }

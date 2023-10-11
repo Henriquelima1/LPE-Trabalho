@@ -31,20 +31,20 @@ public class ProductsController {
     }
     
     @GetMapping
-    public List<EntityProducts> getAllProducts() {
+    public List<Products> getAllProducts() {
         return productsRepository.findAll();
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<EntityProducts> getEntityAById(@PathVariable Long id) {
-        Optional<EntityProducts> entityProducts = productsRepository.findById(id);
-        return entityProducts.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Products> getEntityAById(@PathVariable Long id) {
+        Optional<Products> products = productsRepository.findById(id);
+        return products.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
     
     
     @PostMapping
-    public ResponseEntity<EntityProducts> createEntityA(@RequestBody EntityProducts entityProducts) {
-        EntityProducts savedEntityProducts = productsRepository.save(entityProducts);
+    public ResponseEntity<Products> createEntityA(@RequestBody Products products) {
+        Products savedEntityProducts = productsRepository.save(products);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedEntityProducts);
     }
 }
