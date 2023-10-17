@@ -32,12 +32,14 @@ public class ProductsController {
     
     @GetMapping
     public List<Products> getAllProducts() {
+    	System.out.println("entroui products get, ");
         return productsRepository.findAll();
     }
     
     @GetMapping("/{id}")
     public ResponseEntity<Products> getEntityAById(@PathVariable Long id) {
         Optional<Products> products = productsRepository.findById(id);
+        System.out.println("entroui products/id get, "+ id);
         return products.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
     
@@ -45,6 +47,7 @@ public class ProductsController {
     @PostMapping
     public ResponseEntity<Products> createEntityA(@RequestBody Products products) {
         Products savedEntityProducts = productsRepository.save(products);
+        System.out.println("entroui products post, "+ products);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedEntityProducts);
     }
 }
