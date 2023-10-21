@@ -17,7 +17,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
                 		//.allowedOrigins("http://localhost:3000") //  domínio React
-                		.allowedOriginPatterns("http://localhost:3000")
+                		.allowedOriginPatterns("http://localhost:3000", "https://controle-de-stock-com-primereact.onrender.com")
                 		.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowCredentials(true);
             }
